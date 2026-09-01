@@ -38,6 +38,7 @@ WORKDIR /var/www/html
 RUN apt-get update && apt-get install -y \
     libicu-dev \
     libzip-dev \
+    libonig-dev \
     unzip \
     && docker-php-ext-install \
         pdo \
