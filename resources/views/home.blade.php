@@ -1,4 +1,7 @@
 <x-layout>
+    {{-- @if ($errors->any())
+        {{ dd($errors->all()) }}
+    @endif --}}
     <x-slot:title>
         Home Feed
     </x-slot:title>
@@ -6,10 +9,16 @@
         <h1 class="text-3xl font-bold mt-8">Latest Chirps</h1>
         <div class="card bg-base-100 shadow mt-8">
             <div class="card-body">
-                <form>
+                <form method="POST" action="/chirps">
+                    @csrf
                     <div class="form-control w-full">
-                        <textarea name="message" placeholder="What's on your mind?" class="textarea textarea-bordered w-full"
-                            rows="4" maxlength="255" required></textarea>
+                        <textarea name="message" placeholder="What's on your mind?" class="textarea textarea-bordered w-full resize-none @error('message') textarea-error @enderror" 
+                            rows="4" maxlength="255">{{ old('message') }}</textarea>
+                        @error('message')
+                            <div class="label">
+                                <span class="label-text-alt text-error">{{ $message }}</span>
+                            </div>
+                        @enderror    
                     </div>
 
                     <div class="mt-4 flex items-center justify-end">
