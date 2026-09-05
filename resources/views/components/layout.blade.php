@@ -42,7 +42,7 @@
                     </button>
                 </form>
             @else
-                <a href="/login" class="btn btn-ghost btn-sm">
+                <a href="{{ route('register') }}" class="btn btn-ghost btn-sm">
                     Sign In
                 </a>
 
