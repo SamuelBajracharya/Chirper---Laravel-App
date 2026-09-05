@@ -1,10 +1,140 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Chirper
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+Chirper is a small social feed built while learning Laravel. Users can create accounts, sign in, publish short messages called chirps, and manage their own posts.
+
+The project is intentionally simple and is useful as a place to practice Laravel fundamentals with a real, working feature set.
+
+## What I am learning
+
+- Laravel routing and controller actions
+- Blade views and reusable components
+- Authentication, registration, and middleware
+- Eloquent models and relationships
+- Database migrations and seeders
+- Form validation and authorization policies
+- Vite, Tailwind CSS, and frontend asset building
+- Feature and unit testing with PHPUnit
+
+## Features
+
+- User registration and login
+- Authenticated logout
+- Public chirp feed
+- Create, edit, and delete your own chirps
+- Per-user chirp relationships
+- Seeded users and sample chirps for local development
+
+## Requirements
+
+- PHP 8.3 or newer
+- Composer
+- Node.js and npm
+- A database supported by Laravel; the project is configured to work with SQLite by default
+
+## Installation
+
+Clone the repository and enter the project directory:
+
+```bash
+git clone <repository-url>
+cd chirper
+```
+
+Install the PHP and JavaScript dependencies, create the environment file, generate the application key, run migrations, and build the frontend assets:
+
+```bash
+composer run setup
+```
+
+If you are setting the project up manually, the equivalent commands are:
+
+```bash
+composer install
+cp .env.example .env
+php artisan key:generate
+php artisan migrate
+npm install
+npm run build
+```
+
+On Windows PowerShell, use `Copy-Item .env.example .env` instead of `cp .env.example .env`.
+
+## Seed sample data
+
+To add the sample users and chirps:
+
+```bash
+php artisan db:seed --class=ChirpSeeder
+```
+
+The seeded users use the password `password` and the following email addresses:
+
+- `alice@example.com`
+- `bob@example.com`
+- `charlie@example.com`
+
+Do not use these credentials in a production application.
+
+## Run the application
+
+Start Laravel and Vite together with:
+
+```bash
+composer run dev
+```
+
+Then open [http://localhost:8000](http://localhost:8000) in your browser. If your local Laravel setup uses a different port, use the URL shown in the terminal.
+
+To run the frontend dev server separately:
+
+```bash
+npm run dev
+```
+
+## Testing
+
+Run the test suite with:
+
+```bash
+composer run test
+```
+
+The tests are located in the `tests/Feature` and `tests/Unit` directories.
+
+## Useful commands
+
+```bash
+php artisan route:list       # Display registered routes
+php artisan migrate:fresh --seed
+php artisan tinker            # Explore the application interactively
+./vendor/bin/pint             # Format PHP files
+```
+
+On Windows, use `vendor\\bin\\pint.bat` if the shell does not run the Unix-style command.
+
+## Project structure
+
+| Directory | Purpose |
+| --- | --- |
+| `app/Http/Controllers` | Authentication and chirp request handling |
+| `app/Models` | `User` and `Chirp` Eloquent models |
+| `app/Policies` | Authorization rules for chirps |
+| `database/migrations` | Database table definitions |
+| `database/seeders` | Sample data for local development |
+| `resources/views` | Blade pages and components |
+| `resources/css` and `resources/js` | Frontend source files |
+| `routes/web.php` | Web routes for the application |
+| `tests` | Feature and unit tests |
+
+## Learning resources
+
+- [Laravel Documentation](https://laravel.com/docs)
+- [Laravel Learn](https://laravel.com/learn)
+- [Laracasts](https://laracasts.com)
+
+## License
+
+This learning project is open-sourced under the [MIT license](https://opensource.org/licenses/MIT).
 </p>
 
 ## About Laravel
